@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mbps ↔ MBps Calculator</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+  table { border-collapse: collapse; width: 300px; margin: 20px auto; background: #fff; }
+  th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+  th { background: #007BFF; color: #fff; }
+  input { width: 80px; padding: 5px; text-align: center; }
+  h2 { text-align: center; }
+</style>
+</head>
+<body>
+
+<h2>Mbps → MBps</h2>
+<table>
+  <tr>
+    <th>Mbps</th>
+    <th>MBps</th>
+  </tr>
+  <tr>
+    <td><input type="number" id="mbpsInput" placeholder="Mbps" oninput="convertMbpsToMBps()"></td>
+    <td><input type="number" id="mbpsToMBps" placeholder="MBps" readonly></td>
+  </tr>
+</table>
+
+<h2>MBps → Mbps</h2>
+<table>
+  <tr>
+    <th>MBps</th>
+    <th>Mbps</th>
+  </tr>
+  <tr>
+    <td><input type="number" id="mbpsToInput" placeholder="MBps" oninput="convertMBpsToMbps()"></td>
+    <td><input type="number" id="mbpsOutput" placeholder="Mbps" readonly></td>
+  </tr>
+</table>
+
+<script>
+function convertMbpsToMBps() {
+  let mbps = parseFloat(document.getElementById('mbpsInput').value);
+  if (!isNaN(mbps)) {
+    document.getElementById('mbpsToMBps').value = (mbps / 8).toFixed(2);
+  } else {
+    document.getElementById('mbpsToMBps').value = '';
+  }
+}
+
+function convertMBpsToMbps() {
+  let mbpsVal = parseFloat(document.getElementById('mbpsToInput').value);
+  if (!isNaN(mbpsVal)) {
+    document.getElementById('mbpsOutput').value = (mbpsVal * 8).toFixed(2);
+  } else {
+    document.getElementById('mbpsOutput').value = '';
+  }
+}
+</script>
+Copyright Dip@k
+</body>
+</html>
