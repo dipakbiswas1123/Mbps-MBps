@@ -57,22 +57,465 @@ function convertMBpsToMbps() {
   }
 }
 </script>
-<div class="box">
-  <div class="q">1. Mbps আর MBps এর পার্থক্য কী?</div>
-  <div class="a">
-    Ans. Mbps = Megabit per second,  
-    MBps = Megabyte per second (1 Byte = 8 bit)
-  </div>
-</div>
+<h1>Discovery Internet study Guide</h1>
+<h2>Part-1: Customer Priority Basics (1–30)</h2>
 
-<div class="box">
-  <div class="q">2. 10 Mbps মানে কত MBps?</div>
-  <div class="a">
-    Ans. 10 ÷ 8 = <strong>1.25 MBps</strong>
-  </div>
-</div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">1. Mbps আর MBps এর পার্থক্য কী?</div><div class="a">Ans. Mbps = Megabit per second, MBps = Megabyte per second (1 Byte = 8 bit)</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">2. 10 Mbps মানে কত MBps?</div><div class="a">Ans. 10 ÷ 8 = 1.25 MBps<br>Help: <a href="https://dipakbiswas1123.github.io/Mbps-MBps/" target="_blank">Calculator</a></div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">3. কাস্টমার বলে “স্পিড কম” — প্রথমে কী চেক করবেন?</div><div class="a">Ans. Speed unit, device, Wi-Fi, LAN</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">4. Ping কী?</div><div class="a">Ans. Server এ data গিয়ে ফিরে আসতে যত সময় লাগে (ms)</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">5. ভালো Ping কত হওয়া উচিত?</div><div class="a">Ans. 1–30ms excellent, 30–80ms ok, 100ms+ bad</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">6. High ping হলে সমস্যা কী হয়?</div><div class="a">Ans. Game lag, video buffering, voice break</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">7. Timeout মানে কী?</div><div class="a">Ans. নির্দিষ্ট সময়ের মধ্যে reply না পাওয়া</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">8. Ping timeout কেন হয়?</div><div class="a">Ans. Packet loss, link down, firewall block</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">9. Packet loss কী?</div><div class="a">Ans. পাঠানো data মাঝপথে হারিয়ে যাওয়া</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">10. Packet loss কত % হলে সমস্যা?</div><div class="a">Ans. 1%+ noticeable, 5%+ serious</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">11. Download slow কিন্তু upload fast কেন?</div><div class="a">Ans. Congestion, shaping, faulty cable</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">12. LAN এ speed বেশি কিন্তু Wi-Fi তে কম কেন?</div><div class="a">Ans. Distance, wall, interference</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">13. 2.4GHz আর 5GHz পার্থক্য?</div><div class="a">Ans. 2.4GHz range বেশি, speed কম | 5GHz speed বেশি, range কম</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">14. Speedtest কোনটা accurate?</div><div class="a">Ans. ISP local server best</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">15. Speedtest app আর browser test পার্থক্য?</div><div class="a">Ans. App বেশি accurate</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">16. Buffering মানে কী?</div><div class="a">Ans. Data আগেই load হতে না পারা</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">17. DNS slow হলে কী হয়?</div><div class="a">Ans. Website খুলতে দেরি</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">18. Popular DNS কী কী?</div><div class="a">Ans. 8.8.8.8, 1.1.1.1</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">19. Customer YouTube চলে, Facebook না—কেন?</div><div class="a">Ans. DNS, routing issue</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">20. Internet আছে কিন্তু website খুলে না?</div><div class="a">Ans. DNS problem</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">21. Speed ঠিক, কিন্তু Zoom lag—কেন?</div><div class="a">Ans. High ping / packet loss</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">22. Restart দিলে সমস্যা কেন ঠিক হয়?</div><div class="a">Ans. Memory flush, fresh connection</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">23. Modem আর Router পার্থক্য?</div><div class="a">Ans. Modem ISP connect করে, Router distribute করে</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">24. ONU/ONT কী?</div><div class="a">Ans. Fiber signal কে Electrical signal এ convert করে</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">25. Red LOS light মানে কী?</div><div class="a">Ans. Fiber break / no signal</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">26. Wi-Fi password change করলে কী হয়?</div><div class="a">Ans. Unauthorized user cut off</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">27. Multiple user হলে speed কমে কেন?</div><div class="a">Ans. Bandwidth sharing</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">28. Background download কীভাবে চেক?</div><div class="a">Ans. Task manager / router client list</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">29. VPN use করলে speed কমে কেন?</div><div class="a">Ans. Encryption + longer route</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">30. ISP support এ polite কথা কেন জরুরি?</div><div class="a">Ans. Customer trust + escalation avoid</div></div>
+
+<h2>Part-2: Networking Fundamentals (31–60)</h2>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">31. IP address কী?</div><div class="a">Ans. Network এ device এর unique address</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">32. IPv4 format কী?</div><div class="a">Ans. 192.168.1.1</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">33. Private IP range কী কী?</div><div class="a">Ans. 10.x.x.x, 172.16–31.x.x, 192.168.x.x</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">34. Public IP কী?</div><div class="a">Ans. Internet-visible IP</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">35. NAT কী?</div><div class="a">Ans. Private IP কে Public IP এ translate করে</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">36. CGNAT কী?</div><div class="a">Ans. Multiple user share one public IP</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">37. CGNAT issue কী?</div><div class="a">Ans. Port forwarding কাজ করে না</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">38. Subnet mask কী?</div><div class="a">Ans. Network & host part define করে</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">39. Gateway কী?</div><div class="a">Ans. Network exit point</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">40. DNS server কী?</div><div class="a">Ans. Domain থেকে IP convert</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">41. MAC address কী?</div><div class="a">Ans. Hardware unique ID</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">42. DHCP কী?</div><div class="a">Ans. Auto IP assign</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">43. Static IP কেন দরকার?</div><div class="a">Ans. Server, CCTV, remote access</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">44. PPPoE কী?</div><div class="a">Ans. Username/password based internet</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">45. MTU কী?</div><div class="a">Ans. Max packet size</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">46. Wrong MTU হলে কী হয়?</div><div class="a">Ans. Slow browsing, timeout</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">47. VLAN কী?</div><div class="a">Ans. Logical network separation</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">48. Switch আর Hub পার্থক্য?</div><div class="a">Ans. Switch intelligent, Hub broadcast</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">49. Router কাজ কী?</div><div class="a">Ans. Different network connect</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">50. Firewall কী?</div><div class="a">Ans. Traffic allow/block</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">51. Port কী?</div><div class="a">Ans. Service identifier (80/443)</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">52. TCP vs UDP?</div><div class="a">Ans. TCP reliable, UDP fast</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">53. HTTP vs HTTPS?</div><div class="a">Ans. HTTPS encrypted</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">54. Bandwidth কী?</div><div class="a">Ans. Maximum network capacity</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">55. Throughput কী?</div><div class="a">Ans. Actual achieved speed</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">56. Latency কী?</div><div class="a">Ans. Delay time</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">57. Jitter কী?</div><div class="a">Ans. Latency variation</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">58. ICMP কী?</div><div class="a">Ans. Ping protocol</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">59. Traceroute কী?</div><div class="a">Ans. Path show করে</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">60. Loopback IP কী?</div><div class="a">Ans. 127.0.0.1</div></div>
+
+<h2>Part-3: Support Engineer Practical (61–100)</h2>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">61. First troubleshooting step কী?</div><div class="a">Ans. Physical link check</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">62. No internet but Wi-Fi connected?</div><div class="a">Ans. WAN / PPPoE issue</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">63. Slow only evening—কেন?</div><div class="a">Ans. Peak hour congestion</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">64. Fiber bend হলে কী হয়?</div><div class="a">Ans. Signal loss</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">65. CRC error মানে কী?</div><div class="a">Ans. Bad cable / interference</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">66. Rx low power মানে কী?</div><div class="a">Ans. Fiber weak signal</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">67. ONU reboot বারবার কেন?</div><div class="a">Ans. Power issue</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">68. Adapter voltage mismatch effect?</div><div class="a">Ans. Device unstable</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">69. IP conflict কী?</div><div class="a">Ans. Same IP two device</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">70. Customer game disconnect—check?</div><div class="a">Ans. Ping, packet loss, NAT type</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">71. NAT type strict মানে?</div><div class="a">Ans. CGNAT / port blocked</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">72. Port forwarding কী?</div><div class="a">Ans. External → internal service</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">73. CCTV remote view না আসা?</div><div class="a">Ans. CGNAT issue</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">74. Wi-Fi channel overlap কী?</div><div class="a">Ans. Nearby router interference</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">75. Best Wi-Fi channel?</div><div class="a">Ans. 1, 6, 11 (2.4GHz)</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">76. Firmware update দরকার কেন?</div><div class="a">Ans. Bug fix, security</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">77. Factory reset risk?</div><div class="a">Ans. Config loss</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">78. Router hanging কারণ?</div><div class="a">Ans. Overload, heat</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">79. Bandwidth abuse detect কীভাবে?</div><div class="a">Ans. Traffic monitor</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">80. Speed limit apply কেন?</div><div class="a">Ans. Fair usage</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">81. ISP shaping মানে?</div><div class="a">Ans. Service-based speed control</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">82. Proxy server কী?</div><div class="a">Ans. Middleman server</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">83. Cache server benefit?</div><div class="a">Ans. Faster local content</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">84. CDN কী?</div><div class="a">Ans. Nearest content delivery</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">85. Local vs international bandwidth?</div><div class="a">Ans. Local cheaper & faster</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">86. DNS poisoning কী?</div><div class="a">Ans. Fake IP response</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">87. Phishing site কী?</div><div class="a">Ans. Fake website</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">88. Customer angry হলে কী করবেন?</div><div class="a">Ans. Listen → empathize → solve</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">89. Escalation কখন করবেন?</div><div class="a">Ans. Repeated / backbone issue</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">90. SLA কী?</div><div class="a">Ans. Service agreement</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">91. Uptime কী?</div><div class="a">Ans. Service availability %</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">92. NOC কী?</div><div class="a">Ans. Network Operation Center</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">93. Monitoring tools কেন দরকার?</div><div class="a">Ans. Proactive detection</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">94. Log check কেন গুরুত্বপূর্ণ?</div><div class="a">Ans. Root cause analysis</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">95. Ticket system benefit?</div><div class="a">Ans. Issue tracking</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">96. On-site visit কখন?</div><div class="a">Ans. Physical fault</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">97. Customer education কেন দরকার?</div><div class="a">Ans. Repeated call কমে</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">98. Network documentation কেন জরুরি?</div><div class="a">Ans. Fast troubleshooting</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">99. Backup config কেন রাখবেন?</div><div class="a">Ans. Disaster recovery</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">100. Good support engineer এর মূল গুণ?</div><div class="a">Ans. Patience + clear explanation</div></div>
+
+
+
+<!-- ================= PART 4 ================= -->
+<h2>Part-4: Networking & ISP (101–200)</h2>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">101. MAC Address কী?</div><div class="a">Ans. Device এর hardware based unique address</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">102. IPv4 address কয় bit?</div><div class="a">Ans. 32 bit</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">103. IPv6 address কয় bit?</div><div class="a">Ans. 128 bit</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">104. Private IP range বলুন</div><div class="a">Ans. 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">105. Public IP কী?</div><div class="a">Ans. Internet এ routable IP</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">106. CGNAT কী?</div><div class="a">Ans. Multiple customer কে এক public IP দেওয়া</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">107. CGNAT issue কী?</div><div class="a">Ans. Gaming, port forwarding সমস্যা</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">108. Bridge mode কী?</div><div class="a">Ans. ONU/router NAT ছাড়া direct pass করে</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">109. Router mode কী?</div><div class="a">Ans. NAT + DHCP চালু থাকে</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">110. DHCP কী?</div><div class="a">Ans. Auto IP assign service</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">111. DNS কী?</div><div class="a">Ans. Domain name কে IP এ convert করে</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">112. Popular DNS দিন</div><div class="a">Ans. 8.8.8.8, 1.1.1.1</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">113. Latency কী?</div><div class="a">Ans. Data যেতে-আসতে সময়</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">114. Jitter কী?</div><div class="a">Ans. Latency fluctuation</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">115. Packet loss কী?</div><div class="a">Ans. Data packet drop হওয়া</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">116. Good packet loss কত?</div><div class="a">Ans. 0%</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">117. Speedtest এ Mbps দেখা যায় কেন?</div><div class="a">Ans. ISP bandwidth bit এ মাপে</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">118. Download slow but speedtest ok?</div><div class="a">Ans. Server limit বা MBps confusion</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">119. ONU কী?</div><div class="a">Ans. Fiber signal কে Ethernet এ convert করে</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">120. OLT কী?</div><div class="a">Ans. ISP side main fiber device</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">121. GPON full form?</div><div class="a">Ans. Gigabit Passive Optical Network</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">122. GPON speed কত?</div><div class="a">Ans. Down 2.5G / Up 1.25G</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">123. EPON speed কত?</div><div class="a">Ans. 1.25G up/down</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">124. Splitter কী?</div><div class="a">Ans. One fiber কে multiple fiber এ ভাগ করে</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">125. 1:8 splitter loss কত?</div><div class="a">Ans. ~10.5 dB</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">126. 1:16 splitter loss?</div><div class="a">Ans. ~13.5 dB</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">127. 1:32 splitter loss?</div><div class="a">Ans. ~17 dB</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">128. Optical power unit?</div><div class="a">Ans. dBm</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">129. ONU RX power ideal?</div><div class="a">Ans. -8 dBm to -28 dBm</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">130. Power বেশি হলে কী সমস্যা?</div><div class="a">Ans. ONU damage বা link unstable</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">131. Power কম হলে কী হবে?</div><div class="a">Ans. LOS / frequent disconnection</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">132. LOS light মানে?</div><div class="a">Ans. Fiber signal নেই</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">133. PON light off?</div><div class="a">Ans. ONU OLT authenticate হয়নি</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">134. ONU authentication কী?</div><div class="a">Ans. SN/LOID verify</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">135. VLAN কী?</div><div class="a">Ans. Virtual LAN segmentation</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">136. VLAN ব্যবহার কেন?</div><div class="a">Ans. Security ও traffic control</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">137. Trunk port কী?</div><div class="a">Ans. Multiple VLAN carry করে</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">138. Access port কী?</div><div class="a">Ans. Single VLAN port</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">139. STP কী?</div><div class="a">Ans. Loop prevent protocol</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">140. Loop হলে কী হয়?</div><div class="a">Ans. Network down / broadcast storm</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">141. Bandwidth vs Throughput?</div><div class="a">Ans. Capacity vs actual speed</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">142. Port forwarding কী?</div><div class="a">Ans. External request internal device এ পাঠানো</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">143. Gaming NAT type strict?</div><div class="a">Ans. CGNAT বা port closed</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">144. Solution NAT issue?</div><div class="a">Ans. Public IP বা bridge mode</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">145. Speed slow at night?</div><div class="a">Ans. Peak hour congestion</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">146. Fair usage policy কী?</div><div class="a">Ans. Heavy user control policy</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">147. Upload কম কেন?</div><div class="a">Ans. GPON asymmetric nature</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">148. MTU কী?</div><div class="a">Ans. Max packet size</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">149. Wrong MTU effect?</div><div class="a">Ans. Browsing slow, disconnect</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">150. PPPoE full form?</div><div class="a">Ans. Point to Point Protocol over Ethernet</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">151. PPPoE use কেন?</div><div class="a">Ans. User authentication & billing</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">152. PPPoE fail reason?</div><div class="a">Ans. Wrong user/pass, VLAN issue</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">153. ONU reboot benefit?</div><div class="a">Ans. Session refresh</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">154. Fiber bending effect?</div><div class="a">Ans. Optical loss increase</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">155. OTDR কী?</div><div class="a">Ans. Fiber fault distance detect tool</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">156. Optical power meter use?</div><div class="a">Ans. Fiber signal strength measure</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">157. Red light fiber dangerous?</div><div class="a">Ans. Yes, eye damage risk</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">158. Fiber color coding?</div><div class="a">Ans. Yellow = SM, Orange = MM</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">159. UTP cable max length?</div><div class="a">Ans. 100 meter</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">160. Cat6 speed?</div><div class="a">Ans. Up to 1 Gbps (short distance 10G)</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">161. Customer angry—first step?</div><div class="a">Ans. Calm listening</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">162. Support call opening line?</div><div class="a">Ans. Greeting + name + help offer</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">163. Speed complain solve order?</div><div class="a">Ans. Unit → device → link → server</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">164. WiFi slow reason?</div><div class="a">Ans. Distance, interference</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">165. 2.4GHz vs 5GHz?</div><div class="a">Ans. Range vs speed</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">166. Router placement best?</div><div class="a">Ans. Center open area</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">167. Firmware update benefit?</div><div class="a">Ans. Bug fix & security</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">168. Factory reset when?</div><div class="a">Ans. Misconfiguration case</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">169. LAN faster than WiFi কেন?</div><div class="a">Ans. No wireless loss</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">170. Customer education কেন জরুরি?</div><div class="a">Ans. Repeat complaint কমে</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">171. SLA কী?</div><div class="a">Ans. Service Level Agreement</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">172. Downtime log কেন?</div><div class="a">Ans. Proof & analysis</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">173. Ticketing system use?</div><div class="a">Ans. Issue tracking</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">174. NOC full form?</div><div class="a">Ans. Network Operation Center</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">175. Escalation meaning?</div><div class="a">Ans. Higher level support</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">176. Preventive maintenance?</div><div class="a">Ans. Problem আগে থেকেই avoid</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">177. Backup link benefit?</div><div class="a">Ans. Redundancy</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">178. Core switch role?</div><div class="a">Ans. Main traffic handling</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">179. Access switch role?</div><div class="a">Ans. Customer connection</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">180. Uplink saturation?</div><div class="a">Ans. Bandwidth fully used</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">181. Monitoring tool use?</div><div class="a">Ans. Real-time network status</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">182. SNMP কী?</div><div class="a">Ans. Network monitoring protocol</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">183. Syslog use?</div><div class="a">Ans. Event logging</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">184. Power backup important কেন?</div><div class="a">Ans. Downtime prevent</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">185. UPS role?</div><div class="a">Ans. Short-time power supply</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">186. Router hang symptom?</div><div class="a">Ans. Packet loss, high latency</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">187. Temperature effect device?</div><div class="a">Ans. Overheat → failure</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">188. Fiber joint loss acceptable?</div><div class="a">Ans. ≤0.3 dB</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">189. Patch cord purpose?</div><div class="a">Ans. Short fiber connection</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">190. SC vs LC connector?</div><div class="a">Ans. Size & density difference</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">191. ISP support KPI?</div><div class="a">Ans. Response & resolution time</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">192. Customer retention meaning?</div><div class="a">Ans. Existing user ধরে রাখা</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">193. New connection checklist?</div><div class="a">Ans. Power, light, auth, speed</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">194. Documentation কেন জরুরি?</div><div class="a">Ans. Future troubleshooting</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">195. Network diagram benefit?</div><div class="a">Ans. Clear understanding</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">196. SLA breach হলে?</div><div class="a">Ans. Compensation / escalation</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">197. Prevent repeat issue?</div><div class="a">Ans. Root cause fix</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">198. ISP reputation depend on?</div><div class="a">Ans. Support quality</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">199. Best support skill?</div><div class="a">Ans. Communication + technical</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">200. Good engineer trait?</div><div class="a">Ans. Patience & problem solving</div></div>
+
+
+<!-- ================= PART 5 ================= -->
+<h2>Part-5: Advanced Fiber & ISP (201–300)</h2>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">201. Optical wavelength কী?</div><div class="a">Ans. Fiber এ আলো চলার frequency</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">202. GPON downstream wavelength?</div><div class="a">Ans. 1490 nm</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">203. GPON upstream wavelength?</div><div class="a">Ans. 1310 nm</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">204. IPTV wavelength GPON এ?</div><div class="a">Ans. 1550 nm</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">205. EPON wavelength?</div><div class="a">Ans. 1310 nm (up/down)</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">206. XG-PON downstream?</div><div class="a">Ans. 1577 nm</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">207. XG-PON upstream?</div><div class="a">Ans. 1270 nm</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">208. XGS-PON speed?</div><div class="a">Ans. 10G up / 10G down</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">209. GPON max split ratio?</div><div class="a">Ans. 1:64</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">210. Practical split ratio?</div><div class="a">Ans. 1:8 / 1:16 / 1:32</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">211. OLT uplink purpose?</div><div class="a">Ans. Core network connect</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">212. OLT PON port capacity?</div><div class="a">Ans. 2.5G / 1.25G</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">213. DBA full form?</div><div class="a">Ans. Dynamic Bandwidth Allocation</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">214. DBA কাজ কী?</div><div class="a">Ans. ONU bandwidth control</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">215. ONU T-CONT কী?</div><div class="a">Ans. Bandwidth container</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">216. GEM port কী?</div><div class="a">Ans. GPON data tunnel</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">217. Line profile কী?</div><div class="a">Ans. Bandwidth & service config</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">218. Service profile কী?</div><div class="a">Ans. VLAN, port, service mapping</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">219. ONU offline cause?</div><div class="a">Ans. Fiber cut, power off, auth fail</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">220. ONU LOS frequent?</div><div class="a">Ans. Dirty connector / bending</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">221. Optical attenuation meaning?</div><div class="a">Ans. Signal loss per km</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">222. SM fiber attenuation?</div><div class="a">Ans. ~0.35 dB/km @1310nm</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">223. Connector loss acceptable?</div><div class="a">Ans. ≤0.5 dB</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">224. Splice loss acceptable?</div><div class="a">Ans. ≤0.3 dB</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">225. Optical budget কী?</div><div class="a">Ans. Total allowable loss</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">226. GPON Class B+ budget?</div><div class="a">Ans. ~28 dB</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">227. GPON Class C+ budget?</div><div class="a">Ans. ~32 dB</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">228. GPON Class C++ budget?</div><div class="a">Ans. ~35 dB</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">229. Power imbalance issue?</div><div class="a">Ans. Some ONU drop</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">230. Equal power distribution কেন?</div><div class="a">Ans. Stable service</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">231. Fiber polarity meaning?</div><div class="a">Ans. TX–RX alignment</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">232. Dirty connector symptom?</div><div class="a">Ans. High loss, intermittent LOS</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">233. Fiber cleaning tool?</div><div class="a">Ans. One-click cleaner</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">234. SFP LR wavelength?</div><div class="a">Ans. 1310 nm</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">235. SFP ER wavelength?</div><div class="a">Ans. 1550 nm</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">236. SFP SR wavelength?</div><div class="a">Ans. 850 nm</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">237. BiDi SFP wavelength?</div><div class="a">Ans. 1310/1550 nm pair</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">238. DWDM meaning?</div><div class="a">Ans. Dense Wavelength Division Multiplexing</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">239. CWDM vs DWDM?</div><div class="a">Ans. Channel spacing difference</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">240. Fiber protection method?</div><div class="a">Ans. Ring topology</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">241. Ring cut হলে?</div><div class="a">Ans. Traffic reverse path নেয়</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">242. ERPS full form?</div><div class="a">Ans. Ethernet Ring Protection Switching</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">243. ERPS purpose?</div><div class="a">Ans. Fast failover</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">244. OSPF use ISP কেন?</div><div class="a">Ans. Dynamic routing</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">245. BGP role ISP তে?</div><div class="a">Ans. Internet routing</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">246. IX connection কী?</div><div class="a">Ans. Local traffic exchange</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">247. Cache server benefit?</div><div class="a">Ans. Speed fast, bandwidth save</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">248. YouTube cache purpose?</div><div class="a">Ans. Local content delivery</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">249. Speedtest vs real speed?</div><div class="a">Ans. Server dependent</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">250. Throughput drop reason?</div><div class="a">Ans. Congestion, CPU load</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">251. Router CPU high cause?</div><div class="a">Ans. Traffic flood, attack</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">252. DDoS attack meaning?</div><div class="a">Ans. Traffic flood attack</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">253. Basic DDoS protection?</div><div class="a">Ans. Rate limit, firewall</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">254. Firewall role?</div><div class="a">Ans. Traffic filtering</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">255. ACL meaning?</div><div class="a">Ans. Access Control List</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">256. MAC binding use?</div><div class="a">Ans. Unauthorized access block</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">257. Loop detection feature?</div><div class="a">Ans. Auto port shutdown</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">258. Broadcast storm sign?</div><div class="a">Ans. Network slow/down</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">259. QoS full form?</div><div class="a">Ans. Quality of Service</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">260. QoS use কেন?</div><div class="a">Ans. Priority traffic</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">261. Voice traffic priority কেন?</div><div class="a">Ans. Low latency দরকার</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">262. Video buffering cause?</div><div class="a">Ans. Packet loss, jitter</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">263. IPTV multicast?</div><div class="a">Ans. One-to-many stream</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">264. IGMP purpose?</div><div class="a">Ans. Multicast control</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">265. IGMP snooping?</div><div class="a">Ans. Unnecessary multicast block</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">266. ONU port down cause?</div><div class="a">Ans. Admin disable / cable issue</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">267. ONU WiFi off reason?</div><div class="a">Ans. Config / hardware</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">268. Dual band router benefit?</div><div class="a">Ans. Better speed & coverage</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">269. Mesh WiFi use case?</div><div class="a">Ans. Large area coverage</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">270. ONU replace when?</div><div class="a">Ans. Hardware faulty</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">271. Fiber relocation issue?</div><div class="a">Ans. Increased loss</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">272. New splitter add impact?</div><div class="a">Ans. Power drop</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">273. OLT overload symptom?</div><div class="a">Ans. Slow speed many users</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">274. Capacity planning meaning?</div><div class="a">Ans. Future growth plan</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">275. Peak hour definition?</div><div class="a">Ans. Highest usage time</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">276. NAP box role?</div><div class="a">Ans. Local fiber distribution</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">277. FAT box meaning?</div><div class="a">Ans. Fiber Access Terminal</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">278. Drop fiber length limit?</div><div class="a">Ans. Typically ≤300m</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">279. Outdoor fiber protection?</div><div class="a">Ans. HDPE duct</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">280. Fiber rodent issue?</div><div class="a">Ans. Biting damage</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">281. SLA uptime target?</div><div class="a">Ans. 99%+</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">282. MTTR meaning?</div><div class="a">Ans. Mean Time To Repair</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">283. MTBF meaning?</div><div class="a">Ans. Mean Time Between Failure</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">284. Preventive checklist?</div><div class="a">Ans. Power, temp, link, log</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">285. Field engineer safety?</div><div class="a">Ans. PPE use</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">286. Ladder work risk?</div><div class="a">Ans. Fall hazard</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">287. Fiber laser safety?</div><div class="a">Ans. Never look directly</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">288. Customer refusal case?</div><div class="a">Ans. Escalate politely</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">289. Support empathy meaning?</div><div class="a">Ans. Customer feeling বোঝা</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">290. Call closing line?</div><div class="a">Ans. Further help offer</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">291. Ticket close when?</div><div class="a">Ans. Issue resolved & confirmed</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">292. Follow-up importance?</div><div class="a">Ans. Customer satisfaction</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">293. Root cause analysis?</div><div class="a">Ans. Actual problem identify</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">294. Recurrent fault meaning?</div><div class="a">Ans. Same issue repeat</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">295. Knowledge base use?</div><div class="a">Ans. Faster support</div></div>
+
+<div class="qa"><div class="q" onclick="toggleAns(this)">296. Training benefit?</div><div class="a">Ans. Skill improvement</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">297. Documentation update কেন?</div><div class="a">Ans. Accurate info</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">298. Team communication importance?</div><div class="a">Ans. Fast resolution</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">299. ISP success factor?</div><div class="a">Ans. Reliable network</div></div>
+<div class="qa"><div class="q" onclick="toggleAns(this)">300. Final goal of support?</div><div class="a">Ans. Happy customer</div></div>
+
 
 </body>
 </html>
+
 
 
