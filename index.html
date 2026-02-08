@@ -1,525 +1,995 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Mbps ↔ MBps Calculator</title>
-<style>
-  body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
-  table { border-collapse: collapse; width: 300px; margin: 20px auto; background: #fff; }
-  th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
-  th { background: #007BFF; color: #fff; }
-  input { width: 80px; padding: 5px; text-align: center; }
-  h2 { text-align: center; }
-  h1 { text-align: center; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discovery Internet Pro Guide | 300 Q&A</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --success: #10b981;
+            --danger: #ef4444;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.1);
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-attachment: fixed;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Animated background particles */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+        
+        .container-custom {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        /* Modern Glass Header */
+        .header-glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            animation: slideDown 0.6s ease;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header-glass h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-glass p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+        }
+        
+        /* Modern Navigation Tabs */
+        .nav-modern {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            padding: 1rem 2rem;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .nav-btn.active {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
+            transform: scale(1.05);
+        }
+        
+        /* Main Content Panel */
+        .content-panel {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+            padding: 2.5rem;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        /* Modern Search Bar */
+        .search-modern {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .search-modern input {
+            width: 100%;
+            padding: 1.2rem 1.5rem 1.2rem 3.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: white;
+        }
+        
+        .search-modern input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+        
+        .search-modern i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            font-size: 1.2rem;
+        }
+        
+        /* Modern Q&A Cards */
+        .qa-card-modern {
+            background: white;
+            border: 2px solid #f1f5f9;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            overflow: hidden;
+        }
+        
+        .qa-card-modern:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.15);
+            transform: translateY(-3px);
+        }
+        
+        .qa-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .qa-number {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .qa-text {
+            flex: 1;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+        
+        .qa-icon {
+            color: #94a3b8;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+        
+        .qa-card-modern.open .qa-icon {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+        
+        .qa-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .qa-card-modern.open .qa-answer {
+            max-height: 500px;
+        }
+        
+        .qa-answer-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            background: linear-gradient(to bottom, #f8fafc, white);
+            border-top: 2px solid #f1f5f9;
+        }
+        
+        /* Exam Mode */
+        .exam-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .exam-header h3 {
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .exam-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .exam-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        }
+        
+        .exam-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(99, 102, 241, 0.4);
+        }
+        
+        .exam-btn.outline {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+        
+        .exam-btn.outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* MCQ Question Card */
+        .mcq-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 2px solid #f1f5f9;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+        }
+        
+        .mcq-question {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .mcq-options {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .mcq-option {
+            position: relative;
+        }
+        
+        .mcq-option input[type="radio"] {
+            display: none;
+        }
+        
+        .mcq-option label {
+            display: block;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+            font-weight: 500;
+            color: #334155;
+        }
+        
+        .mcq-option label:hover {
+            border-color: var(--primary);
+            background: #f8fafc;
+            transform: translateX(5px);
+        }
+        
+        .mcq-option input:checked + label {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .mcq-option label.correct {
+            border-color: var(--success);
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            color: #065f46;
+        }
+        
+        .mcq-option label.wrong {
+            border-color: var(--danger);
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            color: #991b1b;
+        }
+        
+        .verify-btn {
+            width: 100%;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--dark), #1e293b);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .verify-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .verify-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        .verify-btn.success {
+            background: linear-gradient(135deg, var(--success), #059669);
+        }
+        
+        .verify-btn.danger {
+            background: linear-gradient(135deg, var(--danger), #dc2626);
+        }
+        
+        /* Calculator Section */
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .calc-card {
+            background: linear-gradient(135deg, #f8fafc, white);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+        
+        .calc-card label {
+            display: block;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .calc-card input {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .calc-card input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+        
+        .calc-result {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Utility Classes */
+        .section { display: none; }
+        .section.active { display: block; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-glass h1 { font-size: 1.8rem; }
+            .header-glass p { font-size: 1rem; }
+            .content-panel { padding: 1.5rem; }
+            .mcq-card { padding: 1.5rem; }
+            .calc-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-  <h1>Discovery Internet study Guide</h1>
 <body>
-
-<h2>Mbps → MBps</h2>
-<table>
-  <tr>
-    <th>Mbps</th>
-    <th>MBps</th>
-  </tr>
-  <tr>
-    <td><input type="number" id="mbpsInput" placeholder="Mbps" oninput="convertMbpsToMBps()"></td>
-    <td><input type="number" id="mbpsToMBps" placeholder="MBps" readonly></td>
-  </tr>
-</table>
-
-<h2>MBps → Mbps</h2>
-<table>
-  <tr>
-    <th>MBps</th>
-    <th>Mbps</th>
-  </tr>
-  <tr>
-    <td><input type="number" id="mbpsToInput" placeholder="MBps" oninput="convertMBpsToMbps()"></td>
-    <td><input type="number" id="mbpsOutput" placeholder="Mbps" readonly></td>
-  </tr>
-</table>
+    <div class="bg-particles" id="particles"></div>
+    
+    <div class="container-custom">
+        <div class="header-glass">
+            <h1>🌐 Discovery Internet Knowledge Base</h1>
+            <p>Interactive Support Engineer Study Guide - 300 Q&A</p>
+        </div>
+        
+        <div class="nav-modern">
+            <button class="nav-btn active" data-section="study">
+                <i class="bi bi-book-fill"></i> Study Mode
+            </button>
+            <button class="nav-btn" data-section="exam">
+                <i class="bi bi-patch-question-fill"></i> MCQ Exam
+            </button>
+            <button class="nav-btn" data-section="calc">
+                <i class="bi bi-calculator-fill"></i> Calculator
+            </button>
+        </div>
+        
+        <div class="content-panel">
+            <!-- Study Mode -->
+            <div id="study" class="section active">
+                <div class="search-modern">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="searchQ" placeholder="Search 300 questions..." onkeyup="filterQuestions()">
+                </div>
+                <div id="study-list"></div>
+            </div>
+            
+            <!-- Exam Mode -->
+            <div id="exam" class="section">
+                <div class="exam-header">
+                    <h3>📝 Practice Exam Simulator</h3>
+                    <p style="color: #64748b; margin-bottom: 2rem;">Test your knowledge with random questions</p>
+                    <div class="exam-buttons">
+                        <button class="exam-btn outline" data-count="10">10 Questions</button>
+                        <button class="exam-btn outline" data-count="25">25 Questions</button>
+                        <button class="exam-btn" data-count="50">50 Questions</button>
+                    </div>
+                </div>
+                <div id="exam-area"></div>
+            </div>
+            
+            <!-- Calculator -->
+            <div id="calc" class="section">
+                <div class="calc-grid">
+                    <div class="calc-card">
+                        <label>⚡ Enter Mbps (Megabits per second)</label>
+                        <input type="number" id="mbit" placeholder="e.g., 10" oninput="calc(1)">
+                        <div class="calc-result" id="mbyteResult">0.00 MBps</div>
+                    </div>
+                    <div class="calc-card">
+                        <label>💾 Enter MBps (Megabytes per second)</label>
+                        <input type="number" id="mbyte" placeholder="e.g., 1.25" oninput="calc(2)">
+                        <div class="calc-result" id="mbitResult">0.00 Mbps</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <script>
-function convertMbpsToMBps() {
-  let mbps = parseFloat(document.getElementById('mbpsInput').value);
-  if (!isNaN(mbps)) {
-    document.getElementById('mbpsToMBps').value = (mbps / 8).toFixed(2);
-  } else {
-    document.getElementById('mbpsToMBps').value = '';
-  }
+const questions = [
+    { q: "Mbps আর MBps এর পার্থক্য কী?", a: "Mbps = Megabit per second, MBps = Megabyte per second (1 Byte = 8 bit)" },
+    { q: "10 Mbps মানে কত MBps?", a: "10 ÷ 8 = 1.25 MBps" },
+    { q: "কাস্টমার বলে স্পিড কম — প্রথমে কী চেক করবেন?", a: "Speed unit, device, Wi-Fi, LAN" },
+    { q: "Ping কী?", a: "Server এ data গিয়ে ফিরে আসতে যত সময় লাগে (ms)" },
+    { q: "ভালো Ping কত হওয়া উচিত?", a: "1–30ms excellent, 30–80ms ok, 100ms+ bad" },
+    { q: "High ping হলে সমস্যা কী হয়?", a: "Game lag, video buffering, voice break" },
+    { q: "Timeout মানে কী?", a: "নির্দিষ্ট সময়ের মধ্যে reply না পাওয়া" },
+    { q: "Ping timeout কেন হয়?", a: "Packet loss, link down, firewall block" },
+    { q: "Packet loss কী?", a: "পাঠানো data মাঝপথে হারিয়ে যাওয়া" },
+    { q: "Packet loss কত % হলে সমস্যা?", a: "1%+ noticeable, 5%+ serious" },
+    { q: "Download slow কিন্তু upload fast কেন?", a: "Congestion, shaping, faulty cable" },
+    { q: "LAN এ speed বেশি কিন্তু Wi-Fi তে কম কেন?", a: "Distance, wall, interference" },
+    { q: "2.4GHz আর 5GHz পার্থক্য?", a: "2.4GHz range বেশি, speed কম | 5GHz speed বেশি, range কম" },
+    { q: "Speedtest কোনটা accurate?", a: "ISP local server best" },
+    { q: "Speedtest app আর browser test পার্থক্য?", a: "App বেশি accurate" },
+    { q: "Buffering মানে কী?", a: "Data আগেই load হতে না পারা" },
+    { q: "DNS slow হলে কী হয়?", a: "Website খুলতে দেরি" },
+    { q: "Popular DNS কী কী?", a: "8.8.8.8, 1.1.1.1" },
+    { q: "Customer YouTube চলে, Facebook না—কেন?", a: "DNS, routing issue" },
+    { q: "Internet আছে কিন্তু website খুলে না?", a: "DNS problem" },
+    { q: "Speed ঠিক, কিন্তু Zoom lag—কেন?", a: "High ping / packet loss" },
+    { q: "Restart দিলে সমস্যা কেন ঠিক হয়?", a: "Memory flush, fresh connection" },
+    { q: "Modem আর Router পার্থক্য?", a: "Modem ISP connect করে, Router distribute করে" },
+    { q: "ONU/ONT কী?", a: "Fiber signal কে Electrical signal এ convert করে" },
+    { q: "Red LOS light মানে কী?", a: "Fiber break / no signal" },
+    { q: "Wi-Fi password change করলে কী হয়?", a: "Unauthorized user cut off" },
+    { q: "Multiple user হলে speed কমে কেন?", a: "Bandwidth sharing" },
+    { q: "Background download কীভাবে চেক?", a: "Task manager / router client list" },
+    { q: "VPN use করলে speed কমে কেন?", a: "Encryption + longer route" },
+    { q: "ISP support এ polite কথা কেন জরুরি?", a: "Customer trust + escalation avoid" },
+    // 31-60: Networking
+    { q: "IP address কী?", a: "Network এ device এর unique address" },
+    { q: "IPv4 format কী?", a: "192.168.1.1" },
+    { q: "Private IP range কী কী?", a: "10.x.x.x, 172.16–31.x.x, 192.168.x.x" },
+    { q: "Public IP কী?", a: "Internet-visible IP" },
+    { q: "NAT কী?", a: "Private IP কে Public IP এ translate করে" },
+    { q: "CGNAT কী?", a: "Multiple user share one public IP" },
+    { q: "CGNAT issue কী?", a: "Port forwarding কাজ করে না" },
+    { q: "Subnet mask কী?", a: "Network & host part define করে" },
+    { q: "Gateway কী?", a: "Network exit point" },
+    { q: "DNS server কী?", a: "Domain থেকে IP convert" },
+    { q: "MAC address কী?", a: "Hardware unique ID" },
+    { q: "DHCP কী?", a: "Auto IP assign" },
+    { q: "Static IP কেন দরকার?", a: "Server, CCTV, remote access" },
+    { q: "PPPoE কী?", a: "Username/password based internet" },
+    { q: "MTU কী?", a: "Max packet size" },
+    { q: "Wrong MTU হলে কী হয়?", a: "Slow browsing, timeout" },
+    { q: "VLAN কী?", a: "Logical network separation" },
+    { q: "Switch আর Hub পার্থক্য?", a: "Switch intelligent, Hub broadcast" },
+    { q: "Router কাজ কী?", a: "Different network connect" },
+    { q: "Firewall কী?", a: "Traffic allow/block" },
+    { q: "Port কী?", a: "Service identifier (80/443)" },
+    { q: "TCP vs UDP?", a: "TCP reliable, UDP fast" },
+    { q: "HTTP vs HTTPS?", a: "HTTPS encrypted" },
+    { q: "Bandwidth কী?", a: "Maximum network capacity" },
+    { q: "Throughput কী?", a: "Actual achieved speed" },
+    { q: "Latency কী?", a: "Delay time" },
+    { q: "Jitter কী?", a: "Latency variation" },
+    { q: "ICMP কী?", a: "Ping protocol" },
+    { q: "Traceroute কী?", a: "Path show করে" },
+    { q: "Loopback IP কী?", a: "127.0.0.1" },
+    // 61-100: Practical Support
+    { q: "First troubleshooting step কী?", a: "Physical link check" },
+    { q: "No internet but Wi-Fi connected?", a: "WAN / PPPoE issue" },
+    { q: "Slow only evening—কেন?", a: "Peak hour congestion" },
+    { q: "Fiber bend হলে কী হয়?", a: "Signal loss" },
+    { q: "CRC error মানে কী?", a: "Bad cable / interference" },
+    { q: "Rx low power মানে কী?", a: "Fiber weak signal" },
+    { q: "ONU reboot বারবার কেন?", a: "Power issue" },
+    { q: "Adapter voltage mismatch effect?", a: "Device unstable" },
+    { q: "IP conflict কী?", a: "Same IP two device" },
+    { q: "Customer game disconnect—check?", a: "Ping, packet loss, NAT type" },
+    { q: "NAT type strict মানে?", a: "CGNAT / port blocked" },
+    { q: "Port forwarding কী?", a: "External → internal service" },
+    { q: "CCTV remote view না আসা?", a: "CGNAT issue" },
+    { q: "Wi-Fi channel overlap কী?", a: "Nearby router interference" },
+    { q: "Best Wi-Fi channel?", a: "1, 6, 11 (2.4GHz)" },
+    { q: "Firmware update দরকার কেন?", a: "Bug fix, security" },
+    { q: "Factory reset risk?", a: "Config loss" },
+    { q: "Router hanging কারণ?", a: "Overload, heat" },
+    { q: "Bandwidth abuse detect কীভাবে?", a: "Traffic monitor" },
+    { q: "Speed limit apply কেন?", a: "Fair usage" },
+    { q: "ISP shaping মানে?", a: "Service-based speed control" },
+    { q: "Proxy server কী?", a: "Middleman server" },
+    { q: "Cache server benefit?", a: "Faster local content" },
+    { q: "CDN কী?", a: "Nearest content delivery" },
+    { q: "Local vs international bandwidth?", a: "Local cheaper & faster" },
+    { q: "DNS poisoning কী?", a: "Fake IP response" },
+    { q: "Phishing site কী?", a: "Fake website" },
+    { q: "Customer angry হলে কী করবেন?", a: "Listen → empathize → solve" },
+    { q: "Escalation কখন করবেন?", a: "Repeated / backbone issue" },
+    { q: "SLA কী?", a: "Service agreement" },
+    { q: "Uptime কী?", a: "Service availability %" },
+    { q: "NOC কী?", a: "Network Operation Center" },
+    { q: "Monitoring tools কেন দরকার?", a: "Proactive detection" },
+    { q: "Log check কেন গুরুত্বপূর্ণ?", a: "Root cause analysis" },
+    { q: "Ticket system benefit?", a: "Issue tracking" },
+    { q: "On-site visit কখন?", a: "Physical fault" },
+    { q: "Customer education কেন দরকার?", a: "Repeated call কমে" },
+    { q: "Network documentation কেন জরুরি?", a: "Fast troubleshooting" },
+    { q: "Backup config কেন রাখবেন?", a: "Disaster recovery" },
+    { q: "Good support engineer এর মূল গুণ?", a: "Patience + clear explanation" },
+    // 101-200: Networking & ISP Continued
+    { q: "MAC Address কী?", a: "Device এর hardware based unique address" },
+    { q: "IPv4 address কয় bit?", a: "32 bit" },
+    { q: "IPv6 address কয় bit?", a: "128 bit" },
+    { q: "Private IP range বলুন", a: "10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16" },
+    { q: "Public IP কী?", a: "Internet এ routable IP" },
+    { q: "CGNAT কী?", a: "Multiple customer কে এক public IP দেওয়া" },
+    { q: "CGNAT issue কী?", a: "Gaming, port forwarding সমস্যা" },
+    { q: "Bridge mode কী?", a: "ONU/router NAT ছাড়া direct pass করে" },
+    { q: "Router mode কী?", a: "NAT + DHCP চালু থাকে" },
+    { q: "DHCP কী?", a: "Auto IP assign service" },
+    { q: "DNS কী?", a: "Domain name কে IP এ convert করে" },
+    { q: "Popular DNS দিন", a: "8.8.8.8, 1.1.1.1" },
+    { q: "Latency কী?", a: "Data যেতে-আসতে সময়" },
+    { q: "Jitter কী?", a: "Latency fluctuation" },
+    { q: "Packet loss কী?", a: "Data packet drop হওয়া" },
+    { q: "Good packet loss কত?", a: "0%" },
+    { q: "Speedtest এ Mbps দেখা যায় কেন?", a: "ISP bandwidth bit এ মাপে" },
+    { q: "Download slow but speedtest ok?", a: "Server limit বা MBps confusion" },
+    { q: "ONU কী?", a: "Fiber signal কে Ethernet এ convert করে" },
+    { q: "OLT কী?", a: "ISP side main fiber device" },
+    { q: "GPON full form?", a: "Gigabit Passive Optical Network" },
+    { q: "GPON speed কত?", a: "Down 2.5G / Up 1.25G" },
+    { q: "EPON speed কত?", a: "1.25G up/down" },
+    { q: "Splitter কী?", a: "One fiber কে multiple fiber এ ভাগ করে" },
+    { q: "1:8 splitter loss কত?", a: "~10.5 dB" },
+    { q: "1:16 splitter loss?", a: "~13.5 dB" },
+    { q: "1:32 splitter loss?", a: "~17 dB" },
+    { q: "Optical power unit?", a: "dBm" },
+    { q: "ONU RX power ideal?", a: "-8 dBm to -28 dBm" },
+    { q: "Power বেশি হলে কী সমস্যা?", a: "ONU damage বা link unstable" },
+    { q: "Power কম হলে কী হবে?", a: "LOS / frequent disconnection" },
+    { q: "LOS light মানে?", a: "Fiber signal নেই" },
+    { q: "PON light off?", a: "ONU OLT authenticate হয়নি" },
+    { q: "ONU authentication কী?", a: "SN/LOID verify" },
+    { q: "VLAN কী?", a: "Virtual LAN segmentation" },
+    { q: "VLAN ব্যবহার কেন?", a: "Security ও traffic control" },
+    { q: "Trunk port কী?", a: "Multiple VLAN carry করে" },
+    { q: "Access port কী?", a: "Single VLAN port" },
+    { q: "STP কী?", a: "Loop prevent protocol" },
+    { q: "Loop হলে কী হয়?", a: "Network down / broadcast storm" },
+    { q: "Bandwidth vs Throughput?", a: "Capacity vs actual speed" },
+    { q: "Port forwarding কী?", a: "External request internal device এ পাঠানো" },
+    { q: "Gaming NAT type strict?", a: "CGNAT বা port closed" },
+    { q: "Solution NAT issue?", a: "Public IP বা bridge mode" },
+    { q: "Speed slow at night?", a: "Peak hour congestion" },
+    { q: "Fair usage policy কী?", a: "Heavy user control policy" },
+    { q: "Upload কম কেন?", a: "GPON asymmetric nature" },
+    { q: "MTU কী?", a: "Max packet size" },
+    { q: "Wrong MTU effect?", a: "Browsing slow, disconnect" },
+    { q: "PPPoE full form?", a: "Point to Point Protocol over Ethernet" },
+    { q: "PPPoE use কেন?", a: "User authentication & billing" },
+    { q: "PPPoE fail reason?", a: "Wrong user/pass, VLAN issue" },
+    { q: "ONU reboot benefit?", a: "Session refresh" },
+    { q: "Fiber bending effect?", a: "Optical loss increase" },
+    { q: "OTDR কী?", a: "Fiber fault distance detect tool" },
+    { q: "Optical power meter use?", a: "Fiber signal strength measure" },
+    { q: "Red light fiber dangerous?", a: "Yes, eye damage risk" },
+    { q: "Fiber color coding?", a: "Yellow = SM, Orange = MM" },
+    { q: "UTP cable max length?", a: "100 meter" },
+    { q: "Cat6 speed?", a: "Up to 1 Gbps (short distance 10G)" },
+    { q: "Customer angry—first step?", a: "Calm listening" },
+    { q: "Support call opening line?", a: "Greeting + name + help offer" },
+    { q: "Speed complain solve order?", a: "Unit → device → link → server" },
+    { q: "WiFi slow reason?", a: "Distance, interference" },
+    { q: "2.4GHz vs 5GHz?", a: "Range vs speed" },
+    { q: "Router placement best?", a: "Center open area" },
+    { q: "Firmware update benefit?", a: "Bug fix & security" },
+    { q: "Factory reset when?", a: "Misconfiguration case" },
+    { q: "LAN faster than WiFi কেন?", a: "No wireless loss" },
+    { q: "Customer education কেন জরুরি?", a: "Repeat complaint কমে" },
+    { q: "SLA কী?", a: "Service Level Agreement" },
+    { q: "Downtime log কেন?", a: "Proof & analysis" },
+    { q: "Ticketing system use?", a: "Issue tracking" },
+    { q: "NOC full form?", a: "Network Operation Center" },
+    { q: "Escalation meaning?", a: "Higher level support" },
+    { q: "Preventive maintenance?", a: "Problem আগে থেকেই avoid" },
+    { q: "Backup link benefit?", a: "Redundancy" },
+    { q: "Core switch role?", a: "Main traffic handling" },
+    { q: "Access switch role?", a: "Customer connection" },
+    { q: "Uplink saturation?", a: "Bandwidth fully used" },
+    { q: "Monitoring tool use?", a: "Real-time network status" },
+    { q: "SNMP কী?", a: "Network monitoring protocol" },
+    { q: "Syslog use?", a: "Event logging" },
+    { q: "Power backup important কেন?", a: "Downtime prevent" },
+    { q: "UPS role?", a: "Short-time power supply" },
+    { q: "Router hang symptom?", a: "Packet loss, high latency" },
+    { q: "Temperature effect device?", a: "Overheat → failure" },
+    { q: "Fiber joint loss acceptable?", a: "≤0.3 dB" },
+    { q: "Patch cord purpose?", a: "Short fiber connection" },
+    { q: "SC vs LC connector?", a: "Size & density difference" },
+    { q: "ISP support KPI?", a: "Response & resolution time" },
+    { q: "Customer retention meaning?", a: "Existing user ধরে রাখা" },
+    { q: "New connection checklist?", a: "Power, light, auth, speed" },
+    { q: "Documentation কেন জরুরি?", a: "Future troubleshooting" },
+    { q: "Network diagram benefit?", a: "Clear understanding" },
+    { q: "SLA breach হলে?", a: "Compensation / escalation" },
+    { q: "Prevent repeat issue?", a: "Root cause fix" },
+    { q: "ISP reputation depend on?", a: "Support quality" },
+    { q: "Best support skill?", a: "Communication + technical" },
+    { q: "Good engineer trait?", a: "Patience & problem solving" },
+    // 201-300: Advanced Fiber & Systems
+    { q: "Optical wavelength কী?", a: "Fiber এ আলো চলার frequency" },
+    { q: "GPON downstream wavelength?", a: "1490 nm" },
+    { q: "GPON upstream wavelength?", a: "1310 nm" },
+    { q: "IPTV wavelength GPON এ?", a: "1550 nm" },
+    { q: "EPON wavelength?", a: "1310 nm (up/down)" },
+    { q: "XG-PON downstream?", a: "1577 nm" },
+    { q: "XG-PON upstream?", a: "1270 nm" },
+    { q: "XGS-PON speed?", a: "10G up / 10G down" },
+    { q: "GPON max split ratio?", a: "1:64" },
+    { q: "Practical split ratio?", a: "1:8 / 1:16 / 1:32" },
+    { q: "OLT uplink purpose?", a: "Core network connect" },
+    { q: "OLT PON port capacity?", a: "2.5G / 1.25G" },
+    { q: "DBA full form?", a: "Dynamic Bandwidth Allocation" },
+    { q: "DBA কাজ কী?", a: "ONU bandwidth control" },
+    { q: "ONU T-CONT কী?", a: "Bandwidth container" },
+    { q: "GEM port কী?", a: "GPON data tunnel" },
+    { q: "Line profile কী?", a: "Bandwidth & service config" },
+    { q: "Service profile কী?", a: "VLAN, port, service mapping" },
+    { q: "ONU offline cause?", a: "Fiber cut, power off, auth fail" },
+    { q: "ONU LOS frequent?", a: "Dirty connector / bending" },
+    { q: "Optical attenuation meaning?", a: "Signal loss per km" },
+    { q: "SM fiber attenuation?", a: "~0.35 dB/km @1310nm" },
+    { q: "Connector loss acceptable?", a: "≤0.5 dB" },
+    { q: "Splice loss acceptable?", a: "≤0.3 dB" },
+    { q: "Optical budget কী?", a: "Total allowable loss" },
+    { q: "GPON Class B+ budget?", a: "~28 dB" },
+    { q: "GPON Class C+ budget?", a: "~32 dB" },
+    { q: "GPON Class C++ budget?", a: "~35 dB" },
+    { q: "Power imbalance issue?", a: "Some ONU drop" },
+    { q: "Equal power distribution কেন?", a: "Stable service" },
+    { q: "Fiber polarity meaning?", a: "TX–RX alignment" },
+    { q: "Dirty connector symptom?", a: "High loss, intermittent LOS" },
+    { q: "Fiber cleaning tool?", a: "One-click cleaner" },
+    { q: "SFP LR wavelength?", a: "1310 nm" },
+    { q: "SFP ER wavelength?", a: "1550 nm" },
+    { q: "SFP SR wavelength?", a: "850 nm" },
+    { q: "BiDi SFP wavelength?", a: "1310/1550 nm pair" },
+    { q: "DWDM meaning?", a: "Dense Wavelength Division Multiplexing" },
+    { q: "CWDM vs DWDM?", a: "Channel spacing difference" },
+    { q: "Fiber protection method?", a: "Ring topology" },
+    { q: "Ring cut হলে?", a: "Traffic reverse path নেয়" },
+    { q: "ERPS full form?", a: "Ethernet Ring Protection Switching" },
+    { q: "ERPS purpose?", a: "Fast failover" },
+    { q: "OSPF use ISP কেন?", a: "Dynamic routing" },
+    { q: "BGP role ISP তে?", a: "Internet routing" },
+    { q: "IX connection কী?", a: "Local traffic exchange" },
+    { q: "Cache server benefit?", a: "Speed fast, bandwidth save" },
+    { q: "YouTube cache purpose?", a: "Local content delivery" },
+    { q: "Speedtest vs real speed?", a: "Server dependent" },
+    { q: "Throughput drop reason?", a: "Congestion, CPU load" },
+    { q: "Router CPU high cause?", a: "Traffic flood, attack" },
+    { q: "DDoS attack meaning?", a: "Traffic flood attack" },
+    { q: "Basic DDoS protection?", a: "Rate limit, firewall" },
+    { q: "Firewall role?", a: "Traffic filtering" },
+    { q: "ACL meaning?", a: "Access Control List" },
+    { q: "MAC binding use?", a: "Unauthorized access block" },
+    { q: "Loop detection feature?", a: "Auto port shutdown" },
+    { q: "Broadcast storm sign?", a: "Network slow/down" },
+    { q: "QoS full form?", a: "Quality of Service" },
+    { q: "QoS use কেন?", a: "Priority traffic" },
+    { q: "Voice traffic priority কেন?", a: "Low latency দরকার" },
+    { q: "Video buffering cause?", a: "Packet loss, jitter" },
+    { q: "IPTV multicast?", a: "One-to-many stream" },
+    { q: "IGMP purpose?", a: "Multicast control" },
+    { q: "IGMP snooping?", a: "Unnecessary multicast block" },
+    { q: "ONU port down cause?", a: "Admin disable / cable issue" },
+    { q: "ONU WiFi off reason?", a: "Config / hardware" },
+    { q: "Dual band router benefit?", a: "Better speed & coverage" },
+    { q: "Mesh WiFi use case?", a: "Large area coverage" },
+    { q: "ONU replace when?", a: "Hardware faulty" },
+    { q: "Fiber relocation issue?", a: "Increased loss" },
+    { q: "New splitter add impact?", a: "Power drop" },
+    { q: "OLT overload symptom?", a: "Slow speed many users" },
+    { q: "Capacity planning meaning?", a: "Future growth plan" },
+    { q: "Peak hour definition?", a: "Highest usage time" },
+    { q: "NAP box role?", a: "Local fiber distribution" },
+    { q: "FAT box meaning?", a: "Fiber Access Terminal" },
+    { q: "Drop fiber length limit?", a: "Typically ≤300m" },
+    { q: "Outdoor fiber protection?", a: "HDPE duct" },
+    { q: "Fiber rodent issue?", a: "Biting damage" },
+    { q: "SLA uptime target?", a: "99%+" },
+    { q: "MTTR meaning?", a: "Mean Time To Repair" },
+    { q: "MTBF meaning?", a: "Mean Time Between Failure" },
+    { q: "Preventive checklist?", a: "Power, temp, link, log" },
+    { q: "Field engineer safety?", a: "PPE use" },
+    { q: "Ladder work risk?", a: "Fall hazard" },
+    { q: "Fiber laser safety?", a: "Never look directly" },
+    { q: "Customer refusal case?", a: "Escalate politely" },
+    { q: "Support empathy meaning?", a: "Customer feeling বোঝা" },
+    { q: "Call closing line?", a: "Further help offer" },
+    { q: "Ticket close when?", a: "Issue resolved & confirmed" },
+    { q: "Follow-up importance?", a: "Customer satisfaction" },
+    { q: "Root cause analysis?", a: "Actual problem identify" },
+    { q: "Recurrent fault meaning?", a: "Same issue repeat" },
+    { q: "Knowledge base use?", a: "Faster support" },
+    { q: "Training benefit?", a: "Skill improvement" },
+    { q: "Documentation update কেন?", a: "Accurate info" },
+    { q: "Team communication importance?", a: "Fast resolution" },
+    { q: "ISP success factor?", a: "Reliable network" },
+    { q: "Final goal of support?", a: "Happy customer" }
+];
+
+// Create animated particles
+function createParticles() {
+    const container = document.getElementById('particles');
+    for(let i = 0; i < 15; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.width = Math.random() * 80 + 20 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = Math.random() * 10 + 15 + 's';
+        container.appendChild(particle);
+    }
 }
 
-function convertMBpsToMbps() {
-  let mbpsVal = parseFloat(document.getElementById('mbpsToInput').value);
-  if (!isNaN(mbpsVal)) {
-    document.getElementById('mbpsOutput').value = (mbpsVal * 8).toFixed(2);
-  } else {
-    document.getElementById('mbpsOutput').value = '';
-  }
+function loadStudy() {
+    const list = document.getElementById('study-list');
+    list.innerHTML = questions.map((item, idx) => `
+        <div class="qa-card-modern" data-index="${idx}">
+            <div class="qa-question">
+                <div class="qa-number">${idx + 1}</div>
+                <div class="qa-text">${item.q}</div>
+                <i class="bi bi-chevron-down qa-icon"></i>
+            </div>
+            <div class="qa-answer">
+                <div class="qa-answer-content">${item.a}</div>
+            </div>
+        </div>
+    `).join('');
+    
+    // Add click listeners
+    document.querySelectorAll('.qa-card-modern').forEach(card => {
+        card.addEventListener('click', function() {
+            this.classList.toggle('open');
+        });
+    });
 }
+
+function filterQuestions() {
+    const val = document.getElementById('searchQ').value.toLowerCase();
+    document.querySelectorAll('.qa-card-modern').forEach(card => {
+        card.style.display = card.innerText.toLowerCase().includes(val) ? "block" : "none";
+    });
+}
+
+function generateMCQ(count) {
+    const area = document.getElementById('exam-area');
+    area.innerHTML = '';
+    const selected = [...questions].sort(() => 0.5 - Math.random()).slice(0, count);
+
+    selected.forEach((item, idx) => {
+        const distractors = questions.filter(x => x.a !== item.a).sort(() => 0.5 - Math.random()).slice(0, 3).map(x => x.a);
+        const options = [...distractors, item.a].sort(() => 0.5 - Math.random());
+
+        const qDiv = document.createElement('div');
+        qDiv.className = "mcq-card";
+        qDiv.setAttribute('data-correct', item.a);
+        qDiv.innerHTML = `
+            <div class="mcq-question">${idx + 1}. ${item.q}</div>
+            <div class="mcq-options">
+                ${options.map((opt, i) => `
+                    <div class="mcq-option">
+                        <input type="radio" name="q${idx}" id="q${idx}_o${i}" value="${opt === item.a ? 'true' : 'false'}">
+                        <label for="q${idx}_o${i}">${opt}</label>
+                    </div>
+                `).join('')}
+            </div>
+            <button class="verify-btn">✓ Verify Answer</button>
+        `;
+        
+        const btn = qDiv.querySelector('.verify-btn');
+        btn.addEventListener('click', function() {
+            checkAnswer(this);
+        });
+        
+        area.appendChild(qDiv);
+    });
+}
+
+function checkAnswer(btn) {
+    const container = btn.parentElement;
+    const correctText = container.getAttribute('data-correct');
+    const selected = container.querySelector('input:checked');
+    
+    if (!selected) {
+        alert("⚠️ Please select an option!");
+        return;
+    }
+
+    const isCorrect = selected.value === "true";
+    container.querySelectorAll('.mcq-option label').forEach(label => {
+        if (label.innerText === correctText) {
+            label.classList.add('correct');
+        } else if (label.previousElementSibling.checked) {
+            label.classList.add('wrong');
+        }
+    });
+
+    btn.disabled = true;
+    btn.innerHTML = isCorrect ? '✓ Correct Answer!' : '✗ Incorrect';
+    btn.className = `verify-btn ${isCorrect ? 'success' : 'danger'}`;
+}
+
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`[data-section="${id}"]`).classList.add('active');
+}
+
+function calc(type) {
+    if(type === 1) {
+        const v = parseFloat(document.getElementById('mbit').value) || 0;
+        document.getElementById('mbyteResult').innerText = (v/8).toFixed(2) + " MBps";
+    } else {
+        const v = parseFloat(document.getElementById('mbyte').value) || 0;
+        document.getElementById('mbitResult').innerText = (v*8).toFixed(2) + " Mbps";
+    }
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    createParticles();
+    loadStudy();
+    
+    // Add event listeners to navigation buttons
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const section = this.getAttribute('data-section');
+            showSection(section);
+        });
+    });
+    
+    // Add event listeners to exam buttons
+    document.querySelectorAll('.exam-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const count = parseInt(this.getAttribute('data-count'));
+            generateMCQ(count);
+        });
+    });
+});
 </script>
-
-<h2>Part-1: Customer Priority Basics (1–30)</h2>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">1. Mbps আর MBps এর পার্থক্য কী?</div><div class="a">Ans. Mbps = Megabit per second, MBps = Megabyte per second (1 Byte = 8 bit)</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">2. 10 Mbps মানে কত MBps?</div><div class="a">Ans. 10 ÷ 8 = 1.25 MBps<br>Help: <a href="https://dipakbiswas1123.github.io/Mbps-MBps/" target="_blank">Calculator</a></div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">3. কাস্টমার বলে “স্পিড কম” — প্রথমে কী চেক করবেন?</div><div class="a">Ans. Speed unit, device, Wi-Fi, LAN</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">4. Ping কী?</div><div class="a">Ans. Server এ data গিয়ে ফিরে আসতে যত সময় লাগে (ms)</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">5. ভালো Ping কত হওয়া উচিত?</div><div class="a">Ans. 1–30ms excellent, 30–80ms ok, 100ms+ bad</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">6. High ping হলে সমস্যা কী হয়?</div><div class="a">Ans. Game lag, video buffering, voice break</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">7. Timeout মানে কী?</div><div class="a">Ans. নির্দিষ্ট সময়ের মধ্যে reply না পাওয়া</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">8. Ping timeout কেন হয়?</div><div class="a">Ans. Packet loss, link down, firewall block</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">9. Packet loss কী?</div><div class="a">Ans. পাঠানো data মাঝপথে হারিয়ে যাওয়া</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">10. Packet loss কত % হলে সমস্যা?</div><div class="a">Ans. 1%+ noticeable, 5%+ serious</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">11. Download slow কিন্তু upload fast কেন?</div><div class="a">Ans. Congestion, shaping, faulty cable</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">12. LAN এ speed বেশি কিন্তু Wi-Fi তে কম কেন?</div><div class="a">Ans. Distance, wall, interference</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">13. 2.4GHz আর 5GHz পার্থক্য?</div><div class="a">Ans. 2.4GHz range বেশি, speed কম | 5GHz speed বেশি, range কম</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">14. Speedtest কোনটা accurate?</div><div class="a">Ans. ISP local server best</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">15. Speedtest app আর browser test পার্থক্য?</div><div class="a">Ans. App বেশি accurate</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">16. Buffering মানে কী?</div><div class="a">Ans. Data আগেই load হতে না পারা</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">17. DNS slow হলে কী হয়?</div><div class="a">Ans. Website খুলতে দেরি</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">18. Popular DNS কী কী?</div><div class="a">Ans. 8.8.8.8, 1.1.1.1</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">19. Customer YouTube চলে, Facebook না—কেন?</div><div class="a">Ans. DNS, routing issue</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">20. Internet আছে কিন্তু website খুলে না?</div><div class="a">Ans. DNS problem</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">21. Speed ঠিক, কিন্তু Zoom lag—কেন?</div><div class="a">Ans. High ping / packet loss</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">22. Restart দিলে সমস্যা কেন ঠিক হয়?</div><div class="a">Ans. Memory flush, fresh connection</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">23. Modem আর Router পার্থক্য?</div><div class="a">Ans. Modem ISP connect করে, Router distribute করে</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">24. ONU/ONT কী?</div><div class="a">Ans. Fiber signal কে Electrical signal এ convert করে</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">25. Red LOS light মানে কী?</div><div class="a">Ans. Fiber break / no signal</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">26. Wi-Fi password change করলে কী হয়?</div><div class="a">Ans. Unauthorized user cut off</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">27. Multiple user হলে speed কমে কেন?</div><div class="a">Ans. Bandwidth sharing</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">28. Background download কীভাবে চেক?</div><div class="a">Ans. Task manager / router client list</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">29. VPN use করলে speed কমে কেন?</div><div class="a">Ans. Encryption + longer route</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">30. ISP support এ polite কথা কেন জরুরি?</div><div class="a">Ans. Customer trust + escalation avoid</div></div>
-
-<h2>Part-2: Networking Fundamentals (31–60)</h2>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">31. IP address কী?</div><div class="a">Ans. Network এ device এর unique address</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">32. IPv4 format কী?</div><div class="a">Ans. 192.168.1.1</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">33. Private IP range কী কী?</div><div class="a">Ans. 10.x.x.x, 172.16–31.x.x, 192.168.x.x</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">34. Public IP কী?</div><div class="a">Ans. Internet-visible IP</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">35. NAT কী?</div><div class="a">Ans. Private IP কে Public IP এ translate করে</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">36. CGNAT কী?</div><div class="a">Ans. Multiple user share one public IP</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">37. CGNAT issue কী?</div><div class="a">Ans. Port forwarding কাজ করে না</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">38. Subnet mask কী?</div><div class="a">Ans. Network & host part define করে</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">39. Gateway কী?</div><div class="a">Ans. Network exit point</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">40. DNS server কী?</div><div class="a">Ans. Domain থেকে IP convert</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">41. MAC address কী?</div><div class="a">Ans. Hardware unique ID</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">42. DHCP কী?</div><div class="a">Ans. Auto IP assign</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">43. Static IP কেন দরকার?</div><div class="a">Ans. Server, CCTV, remote access</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">44. PPPoE কী?</div><div class="a">Ans. Username/password based internet</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">45. MTU কী?</div><div class="a">Ans. Max packet size</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">46. Wrong MTU হলে কী হয়?</div><div class="a">Ans. Slow browsing, timeout</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">47. VLAN কী?</div><div class="a">Ans. Logical network separation</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">48. Switch আর Hub পার্থক্য?</div><div class="a">Ans. Switch intelligent, Hub broadcast</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">49. Router কাজ কী?</div><div class="a">Ans. Different network connect</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">50. Firewall কী?</div><div class="a">Ans. Traffic allow/block</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">51. Port কী?</div><div class="a">Ans. Service identifier (80/443)</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">52. TCP vs UDP?</div><div class="a">Ans. TCP reliable, UDP fast</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">53. HTTP vs HTTPS?</div><div class="a">Ans. HTTPS encrypted</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">54. Bandwidth কী?</div><div class="a">Ans. Maximum network capacity</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">55. Throughput কী?</div><div class="a">Ans. Actual achieved speed</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">56. Latency কী?</div><div class="a">Ans. Delay time</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">57. Jitter কী?</div><div class="a">Ans. Latency variation</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">58. ICMP কী?</div><div class="a">Ans. Ping protocol</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">59. Traceroute কী?</div><div class="a">Ans. Path show করে</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">60. Loopback IP কী?</div><div class="a">Ans. 127.0.0.1</div></div>
-
-<h2>Part-3: Support Engineer Practical (61–100)</h2>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">61. First troubleshooting step কী?</div><div class="a">Ans. Physical link check</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">62. No internet but Wi-Fi connected?</div><div class="a">Ans. WAN / PPPoE issue</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">63. Slow only evening—কেন?</div><div class="a">Ans. Peak hour congestion</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">64. Fiber bend হলে কী হয়?</div><div class="a">Ans. Signal loss</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">65. CRC error মানে কী?</div><div class="a">Ans. Bad cable / interference</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">66. Rx low power মানে কী?</div><div class="a">Ans. Fiber weak signal</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">67. ONU reboot বারবার কেন?</div><div class="a">Ans. Power issue</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">68. Adapter voltage mismatch effect?</div><div class="a">Ans. Device unstable</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">69. IP conflict কী?</div><div class="a">Ans. Same IP two device</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">70. Customer game disconnect—check?</div><div class="a">Ans. Ping, packet loss, NAT type</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">71. NAT type strict মানে?</div><div class="a">Ans. CGNAT / port blocked</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">72. Port forwarding কী?</div><div class="a">Ans. External → internal service</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">73. CCTV remote view না আসা?</div><div class="a">Ans. CGNAT issue</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">74. Wi-Fi channel overlap কী?</div><div class="a">Ans. Nearby router interference</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">75. Best Wi-Fi channel?</div><div class="a">Ans. 1, 6, 11 (2.4GHz)</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">76. Firmware update দরকার কেন?</div><div class="a">Ans. Bug fix, security</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">77. Factory reset risk?</div><div class="a">Ans. Config loss</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">78. Router hanging কারণ?</div><div class="a">Ans. Overload, heat</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">79. Bandwidth abuse detect কীভাবে?</div><div class="a">Ans. Traffic monitor</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">80. Speed limit apply কেন?</div><div class="a">Ans. Fair usage</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">81. ISP shaping মানে?</div><div class="a">Ans. Service-based speed control</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">82. Proxy server কী?</div><div class="a">Ans. Middleman server</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">83. Cache server benefit?</div><div class="a">Ans. Faster local content</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">84. CDN কী?</div><div class="a">Ans. Nearest content delivery</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">85. Local vs international bandwidth?</div><div class="a">Ans. Local cheaper & faster</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">86. DNS poisoning কী?</div><div class="a">Ans. Fake IP response</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">87. Phishing site কী?</div><div class="a">Ans. Fake website</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">88. Customer angry হলে কী করবেন?</div><div class="a">Ans. Listen → empathize → solve</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">89. Escalation কখন করবেন?</div><div class="a">Ans. Repeated / backbone issue</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">90. SLA কী?</div><div class="a">Ans. Service agreement</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">91. Uptime কী?</div><div class="a">Ans. Service availability %</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">92. NOC কী?</div><div class="a">Ans. Network Operation Center</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">93. Monitoring tools কেন দরকার?</div><div class="a">Ans. Proactive detection</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">94. Log check কেন গুরুত্বপূর্ণ?</div><div class="a">Ans. Root cause analysis</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">95. Ticket system benefit?</div><div class="a">Ans. Issue tracking</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">96. On-site visit কখন?</div><div class="a">Ans. Physical fault</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">97. Customer education কেন দরকার?</div><div class="a">Ans. Repeated call কমে</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">98. Network documentation কেন জরুরি?</div><div class="a">Ans. Fast troubleshooting</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">99. Backup config কেন রাখবেন?</div><div class="a">Ans. Disaster recovery</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">100. Good support engineer এর মূল গুণ?</div><div class="a">Ans. Patience + clear explanation</div></div>
-
-
-
-<!-- ================= PART 4 ================= -->
-<h2>Part-4: Networking & ISP (101–200)</h2>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">101. MAC Address কী?</div><div class="a">Ans. Device এর hardware based unique address</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">102. IPv4 address কয় bit?</div><div class="a">Ans. 32 bit</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">103. IPv6 address কয় bit?</div><div class="a">Ans. 128 bit</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">104. Private IP range বলুন</div><div class="a">Ans. 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">105. Public IP কী?</div><div class="a">Ans. Internet এ routable IP</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">106. CGNAT কী?</div><div class="a">Ans. Multiple customer কে এক public IP দেওয়া</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">107. CGNAT issue কী?</div><div class="a">Ans. Gaming, port forwarding সমস্যা</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">108. Bridge mode কী?</div><div class="a">Ans. ONU/router NAT ছাড়া direct pass করে</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">109. Router mode কী?</div><div class="a">Ans. NAT + DHCP চালু থাকে</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">110. DHCP কী?</div><div class="a">Ans. Auto IP assign service</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">111. DNS কী?</div><div class="a">Ans. Domain name কে IP এ convert করে</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">112. Popular DNS দিন</div><div class="a">Ans. 8.8.8.8, 1.1.1.1</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">113. Latency কী?</div><div class="a">Ans. Data যেতে-আসতে সময়</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">114. Jitter কী?</div><div class="a">Ans. Latency fluctuation</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">115. Packet loss কী?</div><div class="a">Ans. Data packet drop হওয়া</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">116. Good packet loss কত?</div><div class="a">Ans. 0%</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">117. Speedtest এ Mbps দেখা যায় কেন?</div><div class="a">Ans. ISP bandwidth bit এ মাপে</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">118. Download slow but speedtest ok?</div><div class="a">Ans. Server limit বা MBps confusion</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">119. ONU কী?</div><div class="a">Ans. Fiber signal কে Ethernet এ convert করে</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">120. OLT কী?</div><div class="a">Ans. ISP side main fiber device</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">121. GPON full form?</div><div class="a">Ans. Gigabit Passive Optical Network</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">122. GPON speed কত?</div><div class="a">Ans. Down 2.5G / Up 1.25G</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">123. EPON speed কত?</div><div class="a">Ans. 1.25G up/down</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">124. Splitter কী?</div><div class="a">Ans. One fiber কে multiple fiber এ ভাগ করে</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">125. 1:8 splitter loss কত?</div><div class="a">Ans. ~10.5 dB</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">126. 1:16 splitter loss?</div><div class="a">Ans. ~13.5 dB</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">127. 1:32 splitter loss?</div><div class="a">Ans. ~17 dB</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">128. Optical power unit?</div><div class="a">Ans. dBm</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">129. ONU RX power ideal?</div><div class="a">Ans. -8 dBm to -28 dBm</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">130. Power বেশি হলে কী সমস্যা?</div><div class="a">Ans. ONU damage বা link unstable</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">131. Power কম হলে কী হবে?</div><div class="a">Ans. LOS / frequent disconnection</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">132. LOS light মানে?</div><div class="a">Ans. Fiber signal নেই</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">133. PON light off?</div><div class="a">Ans. ONU OLT authenticate হয়নি</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">134. ONU authentication কী?</div><div class="a">Ans. SN/LOID verify</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">135. VLAN কী?</div><div class="a">Ans. Virtual LAN segmentation</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">136. VLAN ব্যবহার কেন?</div><div class="a">Ans. Security ও traffic control</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">137. Trunk port কী?</div><div class="a">Ans. Multiple VLAN carry করে</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">138. Access port কী?</div><div class="a">Ans. Single VLAN port</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">139. STP কী?</div><div class="a">Ans. Loop prevent protocol</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">140. Loop হলে কী হয়?</div><div class="a">Ans. Network down / broadcast storm</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">141. Bandwidth vs Throughput?</div><div class="a">Ans. Capacity vs actual speed</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">142. Port forwarding কী?</div><div class="a">Ans. External request internal device এ পাঠানো</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">143. Gaming NAT type strict?</div><div class="a">Ans. CGNAT বা port closed</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">144. Solution NAT issue?</div><div class="a">Ans. Public IP বা bridge mode</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">145. Speed slow at night?</div><div class="a">Ans. Peak hour congestion</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">146. Fair usage policy কী?</div><div class="a">Ans. Heavy user control policy</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">147. Upload কম কেন?</div><div class="a">Ans. GPON asymmetric nature</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">148. MTU কী?</div><div class="a">Ans. Max packet size</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">149. Wrong MTU effect?</div><div class="a">Ans. Browsing slow, disconnect</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">150. PPPoE full form?</div><div class="a">Ans. Point to Point Protocol over Ethernet</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">151. PPPoE use কেন?</div><div class="a">Ans. User authentication & billing</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">152. PPPoE fail reason?</div><div class="a">Ans. Wrong user/pass, VLAN issue</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">153. ONU reboot benefit?</div><div class="a">Ans. Session refresh</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">154. Fiber bending effect?</div><div class="a">Ans. Optical loss increase</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">155. OTDR কী?</div><div class="a">Ans. Fiber fault distance detect tool</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">156. Optical power meter use?</div><div class="a">Ans. Fiber signal strength measure</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">157. Red light fiber dangerous?</div><div class="a">Ans. Yes, eye damage risk</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">158. Fiber color coding?</div><div class="a">Ans. Yellow = SM, Orange = MM</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">159. UTP cable max length?</div><div class="a">Ans. 100 meter</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">160. Cat6 speed?</div><div class="a">Ans. Up to 1 Gbps (short distance 10G)</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">161. Customer angry—first step?</div><div class="a">Ans. Calm listening</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">162. Support call opening line?</div><div class="a">Ans. Greeting + name + help offer</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">163. Speed complain solve order?</div><div class="a">Ans. Unit → device → link → server</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">164. WiFi slow reason?</div><div class="a">Ans. Distance, interference</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">165. 2.4GHz vs 5GHz?</div><div class="a">Ans. Range vs speed</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">166. Router placement best?</div><div class="a">Ans. Center open area</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">167. Firmware update benefit?</div><div class="a">Ans. Bug fix & security</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">168. Factory reset when?</div><div class="a">Ans. Misconfiguration case</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">169. LAN faster than WiFi কেন?</div><div class="a">Ans. No wireless loss</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">170. Customer education কেন জরুরি?</div><div class="a">Ans. Repeat complaint কমে</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">171. SLA কী?</div><div class="a">Ans. Service Level Agreement</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">172. Downtime log কেন?</div><div class="a">Ans. Proof & analysis</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">173. Ticketing system use?</div><div class="a">Ans. Issue tracking</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">174. NOC full form?</div><div class="a">Ans. Network Operation Center</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">175. Escalation meaning?</div><div class="a">Ans. Higher level support</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">176. Preventive maintenance?</div><div class="a">Ans. Problem আগে থেকেই avoid</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">177. Backup link benefit?</div><div class="a">Ans. Redundancy</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">178. Core switch role?</div><div class="a">Ans. Main traffic handling</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">179. Access switch role?</div><div class="a">Ans. Customer connection</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">180. Uplink saturation?</div><div class="a">Ans. Bandwidth fully used</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">181. Monitoring tool use?</div><div class="a">Ans. Real-time network status</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">182. SNMP কী?</div><div class="a">Ans. Network monitoring protocol</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">183. Syslog use?</div><div class="a">Ans. Event logging</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">184. Power backup important কেন?</div><div class="a">Ans. Downtime prevent</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">185. UPS role?</div><div class="a">Ans. Short-time power supply</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">186. Router hang symptom?</div><div class="a">Ans. Packet loss, high latency</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">187. Temperature effect device?</div><div class="a">Ans. Overheat → failure</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">188. Fiber joint loss acceptable?</div><div class="a">Ans. ≤0.3 dB</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">189. Patch cord purpose?</div><div class="a">Ans. Short fiber connection</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">190. SC vs LC connector?</div><div class="a">Ans. Size & density difference</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">191. ISP support KPI?</div><div class="a">Ans. Response & resolution time</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">192. Customer retention meaning?</div><div class="a">Ans. Existing user ধরে রাখা</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">193. New connection checklist?</div><div class="a">Ans. Power, light, auth, speed</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">194. Documentation কেন জরুরি?</div><div class="a">Ans. Future troubleshooting</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">195. Network diagram benefit?</div><div class="a">Ans. Clear understanding</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">196. SLA breach হলে?</div><div class="a">Ans. Compensation / escalation</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">197. Prevent repeat issue?</div><div class="a">Ans. Root cause fix</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">198. ISP reputation depend on?</div><div class="a">Ans. Support quality</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">199. Best support skill?</div><div class="a">Ans. Communication + technical</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">200. Good engineer trait?</div><div class="a">Ans. Patience & problem solving</div></div>
-
-
-<!-- ================= PART 5 ================= -->
-<h2>Part-5: Advanced Fiber & ISP (201–300)</h2>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">201. Optical wavelength কী?</div><div class="a">Ans. Fiber এ আলো চলার frequency</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">202. GPON downstream wavelength?</div><div class="a">Ans. 1490 nm</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">203. GPON upstream wavelength?</div><div class="a">Ans. 1310 nm</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">204. IPTV wavelength GPON এ?</div><div class="a">Ans. 1550 nm</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">205. EPON wavelength?</div><div class="a">Ans. 1310 nm (up/down)</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">206. XG-PON downstream?</div><div class="a">Ans. 1577 nm</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">207. XG-PON upstream?</div><div class="a">Ans. 1270 nm</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">208. XGS-PON speed?</div><div class="a">Ans. 10G up / 10G down</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">209. GPON max split ratio?</div><div class="a">Ans. 1:64</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">210. Practical split ratio?</div><div class="a">Ans. 1:8 / 1:16 / 1:32</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">211. OLT uplink purpose?</div><div class="a">Ans. Core network connect</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">212. OLT PON port capacity?</div><div class="a">Ans. 2.5G / 1.25G</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">213. DBA full form?</div><div class="a">Ans. Dynamic Bandwidth Allocation</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">214. DBA কাজ কী?</div><div class="a">Ans. ONU bandwidth control</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">215. ONU T-CONT কী?</div><div class="a">Ans. Bandwidth container</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">216. GEM port কী?</div><div class="a">Ans. GPON data tunnel</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">217. Line profile কী?</div><div class="a">Ans. Bandwidth & service config</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">218. Service profile কী?</div><div class="a">Ans. VLAN, port, service mapping</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">219. ONU offline cause?</div><div class="a">Ans. Fiber cut, power off, auth fail</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">220. ONU LOS frequent?</div><div class="a">Ans. Dirty connector / bending</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">221. Optical attenuation meaning?</div><div class="a">Ans. Signal loss per km</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">222. SM fiber attenuation?</div><div class="a">Ans. ~0.35 dB/km @1310nm</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">223. Connector loss acceptable?</div><div class="a">Ans. ≤0.5 dB</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">224. Splice loss acceptable?</div><div class="a">Ans. ≤0.3 dB</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">225. Optical budget কী?</div><div class="a">Ans. Total allowable loss</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">226. GPON Class B+ budget?</div><div class="a">Ans. ~28 dB</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">227. GPON Class C+ budget?</div><div class="a">Ans. ~32 dB</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">228. GPON Class C++ budget?</div><div class="a">Ans. ~35 dB</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">229. Power imbalance issue?</div><div class="a">Ans. Some ONU drop</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">230. Equal power distribution কেন?</div><div class="a">Ans. Stable service</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">231. Fiber polarity meaning?</div><div class="a">Ans. TX–RX alignment</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">232. Dirty connector symptom?</div><div class="a">Ans. High loss, intermittent LOS</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">233. Fiber cleaning tool?</div><div class="a">Ans. One-click cleaner</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">234. SFP LR wavelength?</div><div class="a">Ans. 1310 nm</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">235. SFP ER wavelength?</div><div class="a">Ans. 1550 nm</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">236. SFP SR wavelength?</div><div class="a">Ans. 850 nm</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">237. BiDi SFP wavelength?</div><div class="a">Ans. 1310/1550 nm pair</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">238. DWDM meaning?</div><div class="a">Ans. Dense Wavelength Division Multiplexing</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">239. CWDM vs DWDM?</div><div class="a">Ans. Channel spacing difference</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">240. Fiber protection method?</div><div class="a">Ans. Ring topology</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">241. Ring cut হলে?</div><div class="a">Ans. Traffic reverse path নেয়</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">242. ERPS full form?</div><div class="a">Ans. Ethernet Ring Protection Switching</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">243. ERPS purpose?</div><div class="a">Ans. Fast failover</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">244. OSPF use ISP কেন?</div><div class="a">Ans. Dynamic routing</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">245. BGP role ISP তে?</div><div class="a">Ans. Internet routing</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">246. IX connection কী?</div><div class="a">Ans. Local traffic exchange</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">247. Cache server benefit?</div><div class="a">Ans. Speed fast, bandwidth save</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">248. YouTube cache purpose?</div><div class="a">Ans. Local content delivery</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">249. Speedtest vs real speed?</div><div class="a">Ans. Server dependent</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">250. Throughput drop reason?</div><div class="a">Ans. Congestion, CPU load</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">251. Router CPU high cause?</div><div class="a">Ans. Traffic flood, attack</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">252. DDoS attack meaning?</div><div class="a">Ans. Traffic flood attack</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">253. Basic DDoS protection?</div><div class="a">Ans. Rate limit, firewall</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">254. Firewall role?</div><div class="a">Ans. Traffic filtering</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">255. ACL meaning?</div><div class="a">Ans. Access Control List</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">256. MAC binding use?</div><div class="a">Ans. Unauthorized access block</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">257. Loop detection feature?</div><div class="a">Ans. Auto port shutdown</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">258. Broadcast storm sign?</div><div class="a">Ans. Network slow/down</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">259. QoS full form?</div><div class="a">Ans. Quality of Service</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">260. QoS use কেন?</div><div class="a">Ans. Priority traffic</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">261. Voice traffic priority কেন?</div><div class="a">Ans. Low latency দরকার</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">262. Video buffering cause?</div><div class="a">Ans. Packet loss, jitter</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">263. IPTV multicast?</div><div class="a">Ans. One-to-many stream</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">264. IGMP purpose?</div><div class="a">Ans. Multicast control</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">265. IGMP snooping?</div><div class="a">Ans. Unnecessary multicast block</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">266. ONU port down cause?</div><div class="a">Ans. Admin disable / cable issue</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">267. ONU WiFi off reason?</div><div class="a">Ans. Config / hardware</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">268. Dual band router benefit?</div><div class="a">Ans. Better speed & coverage</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">269. Mesh WiFi use case?</div><div class="a">Ans. Large area coverage</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">270. ONU replace when?</div><div class="a">Ans. Hardware faulty</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">271. Fiber relocation issue?</div><div class="a">Ans. Increased loss</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">272. New splitter add impact?</div><div class="a">Ans. Power drop</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">273. OLT overload symptom?</div><div class="a">Ans. Slow speed many users</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">274. Capacity planning meaning?</div><div class="a">Ans. Future growth plan</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">275. Peak hour definition?</div><div class="a">Ans. Highest usage time</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">276. NAP box role?</div><div class="a">Ans. Local fiber distribution</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">277. FAT box meaning?</div><div class="a">Ans. Fiber Access Terminal</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">278. Drop fiber length limit?</div><div class="a">Ans. Typically ≤300m</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">279. Outdoor fiber protection?</div><div class="a">Ans. HDPE duct</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">280. Fiber rodent issue?</div><div class="a">Ans. Biting damage</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">281. SLA uptime target?</div><div class="a">Ans. 99%+</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">282. MTTR meaning?</div><div class="a">Ans. Mean Time To Repair</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">283. MTBF meaning?</div><div class="a">Ans. Mean Time Between Failure</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">284. Preventive checklist?</div><div class="a">Ans. Power, temp, link, log</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">285. Field engineer safety?</div><div class="a">Ans. PPE use</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">286. Ladder work risk?</div><div class="a">Ans. Fall hazard</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">287. Fiber laser safety?</div><div class="a">Ans. Never look directly</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">288. Customer refusal case?</div><div class="a">Ans. Escalate politely</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">289. Support empathy meaning?</div><div class="a">Ans. Customer feeling বোঝা</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">290. Call closing line?</div><div class="a">Ans. Further help offer</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">291. Ticket close when?</div><div class="a">Ans. Issue resolved & confirmed</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">292. Follow-up importance?</div><div class="a">Ans. Customer satisfaction</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">293. Root cause analysis?</div><div class="a">Ans. Actual problem identify</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">294. Recurrent fault meaning?</div><div class="a">Ans. Same issue repeat</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">295. Knowledge base use?</div><div class="a">Ans. Faster support</div></div>
-
-<div class="qa"><div class="q" onclick="toggleAns(this)">296. Training benefit?</div><div class="a">Ans. Skill improvement</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">297. Documentation update কেন?</div><div class="a">Ans. Accurate info</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">298. Team communication importance?</div><div class="a">Ans. Fast resolution</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">299. ISP success factor?</div><div class="a">Ans. Reliable network</div></div>
-<div class="qa"><div class="q" onclick="toggleAns(this)">300. Final goal of support?</div><div class="a">Ans. Happy customer</div></div>
-
-
 </body>
 </html>
-
-
-
-
-
