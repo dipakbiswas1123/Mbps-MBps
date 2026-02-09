@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discovery Internet Pro Guide | 300 Q&A</title>
+    <title>Discovery Internet Pro Guide | 400 Q&A</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
@@ -484,7 +484,7 @@
     <div class="container-custom">
         <div class="header-glass">
             <h1>🌐 Discovery Internet Knowledge Base</h1>
-            <p>Interactive Support Engineer Study Guide - 300 Q&A</p>
+            <p>Interactive Support Engineer Study Guide - 400 Q&A</p>
         </div>
         
         <div class="nav-modern">
@@ -504,7 +504,7 @@
             <div id="study" class="section active">
                 <div class="search-modern">
                     <i class="bi bi-search"></i>
-                    <input type="text" id="searchQ" placeholder="Search 300 questions..." onkeyup="filterQuestions()">
+                    <input type="text" id="searchQ" placeholder="Search 400 questions..." onkeyup="filterQuestions()">
                 </div>
                 <div id="study-list"></div>
             </div>
@@ -903,7 +903,55 @@ const questions = [
     { q: "Higher dBi antenna মানে কী?", a: "Longer distance" },
     { q: "Indoor vs outdoor AP পার্থক্য?", a: "Weather protection" },
     { q: "PoE কী?", a: "Power over Ethernet" },
-    { q: "PoE ব্যবহার কেন?", a: "Single cable power+data" }
+    { q: "PoE ব্যবহার কেন?", a: "Single cable power+data" },
+    { q: "DVR কী?", a: "Digital Video Recorder, analog camera রেকর্ড করে" },
+{ q: "NVR কী?", a: "Network Video Recorder, IP camera রেকর্ড করে" },
+{ q: "DVR কোন camera ব্যবহার করে?", a: "Analog / HD analog camera" },
+{ q: "NVR কোন camera ব্যবহার করে?", a: "IP camera" },
+{ q: "DVR ও NVR এর মূল পার্থক্য কী?", a: "Camera type ও connection system" },
+
+{ q: "DVR এ camera সংযোগ কীভাবে হয়?", a: "Coaxial cable দিয়ে" },
+{ q: "NVR এ camera সংযোগ কীভাবে হয়?", a: "LAN cable / network দিয়ে" },
+{ q: "BNC connector কী?", a: "DVR camera connector" },
+{ q: "RJ45 connector কী?", a: "Network cable connector" },
+{ q: "IP camera কী?", a: "Network based digital camera" },
+
+{ q: "PoE camera কী?", a: "একই LAN cable দিয়ে power ও data নেয়" },
+{ q: "PoE switch কেন দরকার?", a: "IP camera কে power দিতে" },
+{ q: "NVR এ PoE port থাকলে সুবিধা কী?", a: "Extra switch লাগে না" },
+{ q: "DVR এ audio record হয়?", a: "হ্যাঁ, supported হলে" },
+{ q: "Two-way audio কী?", a: "শোনা ও বলা দুটোই সম্ভব" },
+
+{ q: "Hard disk কেন দরকার?", a: "Video footage সংরক্ষণ করতে" },
+{ q: "DVR/NVR এ কোন HDD ব্যবহার হয়?", a: "Surveillance HDD" },
+{ q: "Normal HDD ব্যবহার করলে কী হয়?", a: "দ্রুত নষ্ট হতে পারে" },
+{ q: "Storage capacity নির্ভর করে কিসের উপর?", a: "Camera সংখ্যা ও resolution" },
+{ q: "Overwrite mode কী?", a: "পুরনো ভিডিও মুছে নতুন রেকর্ড" },
+
+{ q: "Resolution কী?", a: "ভিডিওর পরিষ্কার মান" },
+{ q: "1080p মানে কী?", a: "Full HD resolution" },
+{ q: "4MP / 5MP মানে কী?", a: "Camera megapixel quality" },
+{ q: "Frame rate (FPS) কী?", a: "প্রতি সেকেন্ডে ছবি সংখ্যা" },
+{ q: "FPS বেশি হলে সুবিধা কী?", a: "Smooth video" },
+
+{ q: "Motion detection কী?", a: "নড়াচড়া হলে রেকর্ড" },
+{ q: "Motion detection এর সুবিধা কী?", a: "Storage save হয়" },
+{ q: "False motion alarm কেন হয়?", a: "Light বা shadow change" },
+{ q: "Night vision কী?", a: "অন্ধকারে দেখা" },
+{ q: "IR LED কাজ কী?", a: "Night vision enable" },
+
+{ q: "Remote viewing কী?", a: "মোবাইল/PC থেকে দেখা" },
+{ q: "DVR/NVR এ internet কেন লাগে?", a: "Remote access এর জন্য" },
+{ q: "P2P cloud কী?", a: "Easy remote connection system" },
+{ q: "Static IP কেন দরকার?", a: "Direct remote access" },
+{ q: "Port forwarding কী?", a: "Outside access allow করা" },
+
+{ q: "Camera offline দেখালে কারণ কী?", a: "Power বা network সমস্যা" },
+{ q: "No video signal মানে কী?", a: "Camera disconnected" },
+{ q: "Power adapter খারাপ হলে কী হয়?", a: "Camera বন্ধ" },
+{ q: "UPS কেন দরকার?", a: "বিদ্যুৎ গেলে backup" },
+{ q: "CCTV system এর মূল উদ্দেশ্য কী?", a: "Security ও monitoring" }
+
 
 ];
 
@@ -1051,3 +1099,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
